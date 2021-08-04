@@ -5,7 +5,7 @@ package com.lining.question_eighteen;
  * @date 2021/7/21 17:28
  * 1844. 将所有数字用字符替换
  * https://leetcode-cn.com/problems/replace-all-digits-with-characters/
- *
+ * <p>
  * 给你一个下标从 0 开始的字符串 s ，它的 偶数 下标处为小写英文字母，奇数 下标处为数字。*
  * 定义一个函数 shift(c, x) ，其中 c 是一个字符且 x 是一个数字，函数返回字母表中 c 后面第 x 个字符。
  * 比方说，shift('a', 5) = 'f' 和 shift('x', 0) = 'x' 。
@@ -14,6 +14,20 @@ package com.lining.question_eighteen;
  */
 public class ReplaceDigits {
     public String replaceDigits(String s) {
-        return "111";
+        int length = s.length();
+        char[] chars = new char[length];
+        for (int i = 0; i < length; i++) {
+            if (i % 2 == 0) {
+                chars[i] = s.charAt(i);
+            } else {
+                chars[i] = shift(s.charAt(i - 1), s.charAt(i) - '0');
+            }
+        }
+        return String.valueOf(chars);
     }
+
+    public char shift(char ch, int i) {
+        return (char) (ch + i);
+    }
+
 }
