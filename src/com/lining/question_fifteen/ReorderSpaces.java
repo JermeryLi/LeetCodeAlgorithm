@@ -1,5 +1,8 @@
 package com.lining.question_fifteen;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 描述：
  * 给你一个字符串 text ，该字符串由若干被空格包围的单词组成。
@@ -20,6 +23,7 @@ public class ReorderSpaces {
         // 空格个数
         int spaceCounts = 0;
         StringBuffer sb = new StringBuffer();
+        List<StringBuffer> list = new ArrayList<>();
         int length = text.length();
         // 一次遍历 拿到单词个数和空格个数、单词内容
         //
@@ -27,15 +31,17 @@ public class ReorderSpaces {
             char c = text.charAt(i);
             if (c == ' ') {
                 spaceCounts++;
-
             } else {
                 if (i == 0) {
                     wordCounts++;
+                    sb = new StringBuffer();
+                    sb.append(c);
                 } else {
                     if (text.charAt(i - 1) == ' ') {
                         wordCounts++;
                         //初始化一个空的单词
-
+                        sb = new StringBuffer();
+                        sb.append(c);
                     }
                 }
             }
