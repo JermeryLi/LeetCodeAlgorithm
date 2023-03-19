@@ -18,41 +18,70 @@ import java.util.List;
  */
 public class ReorderSpaces {
     public String reorderSpaces(String text) {
-        // 单词个数
-        int wordCounts = 0;
         // 空格个数
         int spaceCounts = 0;
-        StringBuffer sb = new StringBuffer();
         List<StringBuffer> list = new ArrayList<>();
+        StringBuffer sb = new StringBuffer();
         int length = text.length();
         // 一次遍历 拿到单词个数和空格个数、单词内容
-        //
         for (int i = 0; i < length; i++) {
             char c = text.charAt(i);
             if (c == ' ') {
                 spaceCounts++;
             } else {
                 if (i == 0) {
-                    wordCounts++;
                     sb = new StringBuffer();
-                    sb.append(c);
+                    list.add(sb);
                 } else {
                     if (text.charAt(i - 1) == ' ') {
-                        wordCounts++;
-                        //初始化一个空的单词
                         sb = new StringBuffer();
-                        sb.append(c);
+                        list.add(sb);
+                    }
+                }
+                sb.append(c);
+            }
+        }
+        if (spaceCounts == 0) {
+            return text;
+        }
+        System.out.println("空格数" + spaceCounts);
+        // 单词个数
+        int wordCounts = list.size();
+        System.out.println("单词个数" + wordCounts);
+        if (wordCounts == 1) {
+            sb = new StringBuffer();
+            sb.append(list.get(0));
+            for (int i = 0; i < spaceCounts; i++) {
+                sb.append(' ');
+            }
+            return sb.toString();
+        }
+        //每两个单词之间的空格个数
+        int spaceCountBetweenWords = spaceCounts / (wordCounts - 1);
+        System.out.println("每两个单词之间的空格个数" + spaceCountBetweenWords);
+        int spaceCountLeft = spaceCounts % (wordCounts - 1);
+        System.out.println("多余的空格数" + spaceCountLeft);
+        sb = new StringBuffer();
+        for (int i = 0; i < list.size(); i++) {
+            sb.append(list.get(i));
+            if (i != list.size() - 1) {
+                for (int i1 = 0; i1 < spaceCountBetweenWords; i1++) {
+                    sb.append(' ');
+                }
+            } else {
+                if (spaceCountLeft != 0) {
+                    for (int j = 0; j < spaceCountLeft; j++) {
+                        sb.append(' ');
                     }
                 }
             }
         }
-        System.out.println("wordCount:" + wordCounts);
-        System.out.println("spaceCounts:" + spaceCounts);
         return sb.toString();
     }
 
     public static void main(String[] args) {
         ReorderSpaces reorderSpaces = new ReorderSpaces();
-        reorderSpaces.reorderSpaces("hello   world");
+        System.out.println(reorderSpaces.reorderSpaces(" practice   makes   perfect"));
+
     }
 }
