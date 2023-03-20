@@ -50,6 +50,6 @@ public class ReverseStr {
     public static void main(String[] args) {
         ReverseStr reverseStr = new ReverseStr();
         reverseStr.reverseStr("abcdefg", 2);
-
+        System.out.println("lining");
     }
 }
