@@ -11,7 +11,6 @@ package com.lining.question_zero;
  */
 public class PlusOne {
     public int[] plusOne(int[] digits) {
-
-
+        return null;
     }
 }
