@@ -20,6 +20,17 @@ package com.lining.question_fifteen;
  */
 public class MinOperations {
     public int minOperations(String[] logs) {
-        return 0;
+        int level = 0;
+        for (String log : logs) {
+            if ("./".equals(log)) {
+            } else if ("../".equals(log)) {
+                if (level > 0) {
+                    level--;
+                }
+            } else {
+                level++;
+            }
+        }
+        return level;
     }
 }
