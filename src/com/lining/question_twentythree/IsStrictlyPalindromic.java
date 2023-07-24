@@ -39,6 +39,7 @@ public class IsStrictlyPalindromic {
         return true;
     }
 
+    // 双指针移动判断字符是否是回文字符
     public static boolean isPalindrome(String str) {
         int start = 0;
         int end = str.length() - 1;
