@@ -16,23 +16,13 @@ package com.lining.question_twentyeight;
  */
 public class DifferenceOfSums {
     public int differenceOfSums(int n, int m) {
-        int num1 = 0;
-        int num2 = 0;
-        for (int i = 1; i <= n; i++) {
-            if (i % m == 0) {
-                num2 += i;
-            } else {
-                num1 += i;
-            }
-        }
-        return num1 - num2;
-
-//        //求和
-//        int sum = (1 + n) * n / 2;
-//        int upper = n / m;
-//        // num2
-//        int num2 = (1 + upper) * upper / 2 * m;
-//        return sum - num2 - num2;
+        // 求和
+        int sum = (1 + n) * n / 2;
+        // 项数
+        int upper = n / m;
+        // num2即能被整除的整数之和
+        int num2 = (m + upper * m) * upper / 2;
+        return sum - num2 - num2;
     }
 }
 
