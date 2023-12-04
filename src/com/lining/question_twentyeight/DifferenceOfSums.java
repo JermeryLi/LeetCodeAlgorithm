@@ -26,6 +26,13 @@ public class DifferenceOfSums {
             }
         }
         return num1 - num2;
+
+//        //求和
+//        int sum = (1 + n) * n / 2;
+//        int upper = n / m;
+//        // num2
+//        int num2 = (1 + upper) * upper / 2 * m;
+//        return sum - num2 - num2;
     }
 }
 
