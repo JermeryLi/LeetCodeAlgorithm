@@ -20,7 +20,7 @@ public class DifferenceOfSums {
         int sum = (1 + n) * n / 2;
         // 项数
         int upper = n / m;
-        // num2即能被整除的整数之和
+        // num2 即能被整除的整数之和
         int num2 = (m + upper * m) * upper / 2;
         return sum - num2 - num2;
     }
