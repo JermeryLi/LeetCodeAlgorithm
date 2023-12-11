@@ -18,15 +18,15 @@ import com.lining.TreeNode;
  * 可以假设 next() 调用总是有效的，也就是说，当调用 next() 时，BST 的中序遍历中至少存在一个下一个数字。
  */
 public class BSTIterator {
-    public BSTIterator(TreeNode root) {
-
-    }
-
-    public int next() {
-
-    }
-
-    public boolean hasNext() {
-
-    }
+//    public BSTIterator(TreeNode root) {
+//
+//    }
+//
+//    public int next() {
+//
+//    }
+//
+//    public boolean hasNext() {
+//
+//    }
 }
