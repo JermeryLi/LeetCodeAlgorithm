@@ -18,7 +18,10 @@ public class ExpandBinaryTree {
         return null;
     }
 
-    //前序遍历
+    /**
+     * 前序遍历
+     * @param root
+     */
     public static void preOrderTraversal(TreeNode root) {
         if (root != null) {
             System.out.print(root.val + " ");
