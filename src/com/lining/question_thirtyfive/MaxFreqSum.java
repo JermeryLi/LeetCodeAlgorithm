@@ -33,30 +33,33 @@ package com.lining.question_thirtyfive;
  **/
 public class MaxFreqSum {
     public int maxFreqSum(String s) {
-        int[] cnt = new int[26];
+        //定义字母个数常数
+        int wordsNum = 26;
+        // 创建长度为26的数组，用于统计每个字母出现的次数
+        int[] cnt = new int[wordsNum];
+        // 遍历字符串中的每个字符
         for (char c : s.toCharArray()) {
+            // 将字符转换为数组索引（'a'对应0，'b'对应1...），并增加该字母的计数
             cnt[c - 'a']++;
         }
-        
-        // 找出元音的最高频率
+
         int maxVowelFreq = 0;
         maxVowelFreq = Math.max(maxVowelFreq, cnt['a' - 'a']);
         maxVowelFreq = Math.max(maxVowelFreq, cnt['e' - 'a']);
         maxVowelFreq = Math.max(maxVowelFreq, cnt['i' - 'a']);
         maxVowelFreq = Math.max(maxVowelFreq, cnt['o' - 'a']);
         maxVowelFreq = Math.max(maxVowelFreq, cnt['u' - 'a']);
-        
-        // 找出辅音的最高频率
+
         int maxConsonantFreq = 0;
-        for (int i = 0; i < 26; i++) {
+        for (int i = 0; i < wordsNum; i++) {
             char c = (char) ('a' + i);
-            // 跳过元音字母
             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
                 continue;
             }
             maxConsonantFreq = Math.max(maxConsonantFreq, cnt[i]);
         }
-        
+
+        // 返回元音最高频率和辅音最高频率的和
         return maxVowelFreq + maxConsonantFreq;
     }
 }
