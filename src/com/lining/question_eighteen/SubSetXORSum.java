@@ -14,11 +14,23 @@ package com.lining.question_eighteen;
  */
 public class SubSetXORSum {
     public int subsetXORSum(int[] nums) {
-        int length = nums.length;
-        int sum = 0;
-        for (int i = 0; i < length; i++) {
-
+        return backtrack(nums, 0, 0);
+    }
+    
+    private int backtrack(int[] nums, int index, int currentXOR) {
+        // 基础情况：已经处理完所有元素
+        if (index == nums.length) {
+            return currentXOR;
         }
-        return sum;
+        
+        // 对于当前元素，有两种选择：
+        // 1. 不包含当前元素：直接递归处理下一个元素
+        int exclude = backtrack(nums, index + 1, currentXOR);
+        
+        // 2. 包含当前元素：将当前元素与currentXOR进行异或运算，然后递归处理下一个元素
+        int include = backtrack(nums, index + 1, currentXOR ^ nums[index]);
+        
+        // 返回两种选择的结果之和
+        return exclude + include;
     }
 }
