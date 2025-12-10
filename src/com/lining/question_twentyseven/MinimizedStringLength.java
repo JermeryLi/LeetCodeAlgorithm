@@ -41,7 +41,7 @@ public class MinimizedStringLength {
         //c - 'a' 得到该字符在 0-25 之间的索引
         //1 << (c - 'a') 创建一个在对应位置为 1 的掩码
         //mask |= ... 用按位或操作把该位标记为已出现
-        for (var c : s.toCharArray()) {
+        for (char c : s.toCharArray()) {
             mask |= 1 << (c - 'a');
         }
         return Integer.bitCount(mask);
